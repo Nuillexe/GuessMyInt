@@ -12,16 +12,16 @@ public class Main {
     }
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in);
-        int randomInt = new Random().nextInt(101);
-        int tryes = 1, answer;
+        Random randomNumberGenerator= new Random();
+        int tries, answer, randomInt;
         do {
-
-            tryes=1;
+            tries=1;
+            randomInt = randomNumberGenerator.nextInt(101);
             System.out.println("Try to guess the random integer number between 0 and 100");
             System.out.println("You have 5 attempts");
 
             do {
-                System.out.printf("Attempt %d°: ", tryes);
+                System.out.printf("Attempt %d°: ", tries);
                 answer = read.nextInt();
                 if (IsValid(answer)) {
                     if (answer < randomInt) {
@@ -29,13 +29,13 @@ public class Main {
                     } else if (answer > randomInt) {
                         System.out.println("The number is lower");
                     }
-                    tryes++;
+                    tries++;
                 } else {
                     System.out.println("Enter a valid number, please");
                 }
-            } while (tryes <= 5 && answer != randomInt);
+            } while (tries <= 5 && answer != randomInt);
 
-            if (tryes > 5) {
+            if (tries > 5) {
                 System.out.printf("Unfortunately, you didn't guess it. The number was %d.", randomInt);
             } else {
                 System.out.println("Congratulations! You guessed it!");
@@ -43,5 +43,7 @@ public class Main {
             System.out.println("Do you want to keep playing? Enter '1' for yes");
             answer=read.nextInt();
         }while (WishContinue(answer));
+
+        read.close();
     }
 }

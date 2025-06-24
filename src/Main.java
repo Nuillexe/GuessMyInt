@@ -5,27 +5,27 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner read = new Scanner(System.in);
-        int aleatoryNumber= new Random().nextInt(100);
+        int randomInt= new Random().nextInt(100);
         int answer=101;
         int tryes=0;
-        System.out.println("Tente adiivinhar o numero aleatorio escolhido no intervalo entre 0 e 100");
-        System.out.println("Voce tem 5 tentativas");
+        System.out.println("Try to guess the random integer number between 0 and 100");
+        System.out.println("You have 5 attempts");
         for(tryes=1; tryes<6; tryes++){
 
-            System.out.printf("%d° Tentativa: ",tryes);
+            System.out.printf("Attempt %d°: ",tryes);
             answer= read.nextInt();
-            if(answer<aleatoryNumber){
-                System.out.println("Este numero é menor");
-            }else if(answer>aleatoryNumber) {
-                System.out.println("Este numero é maior");
+            if(answer<randomInt){
+                System.out.println("The number is higher");
+            }else if(answer>randomInt) {
+                System.out.println("The number is lower");
             }else{
                 break;
             }
         }
         if(tryes>5){
-            System.out.printf("Infelizmente vc não conseguiu. O numero era %d", aleatoryNumber);
+            System.out.printf("Unfortunately, you didn't guess it. The number was %d.", randomInt);
         }else {
-            System.out.println("Parabens!!!Vc acertou!!!");
+            System.out.println("Congratulations! You guessed it!");
         }
     }
 }

@@ -21,7 +21,7 @@ public class Main {
             System.out.println("You have 5 attempts");
 
             do {
-                System.out.printf("Attempt %d°: ", tries);
+                System.out.printf("Attempt %d : ", tries);
                 answer = read.nextInt();
                 if (IsValid(answer)) {
                     if (answer < randomInt) {
@@ -36,7 +36,7 @@ public class Main {
             } while (tries <= 5 && answer != randomInt);
 
             if (tries > 5) {
-                System.out.printf("Unfortunately, you didn't guess it. The number was %d.", randomInt);
+                System.out.println("Unfortunately, you didn't guess it. The number was "+ randomInt);
             } else {
                 System.out.println("Congratulations! You guessed it!");
             }
